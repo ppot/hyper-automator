@@ -1,0 +1,8 @@
+{
+  "name": "hyper-automator",
+  "version": "1.0.0",
+  "main": "automator.js",
+  "repository": "git@github.com:ppot/hyper-automator.git",
+  "author": "ppot <ph.potvin@gmail.com>",
+  "license": "MIT"
+}
