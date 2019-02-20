@@ -4,5 +4,8 @@
   "main": "automator.js",
   "repository": "git@github.com:ppot/hyper-automator.git",
   "author": "ppot <ph.potvin@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "lowdb": "1.0.0"
+  }
 }
