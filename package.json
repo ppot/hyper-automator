@@ -6,6 +6,7 @@
   "author": "ppot <ph.potvin@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "arg": "^4.1.0",
     "lowdb": "1.0.0"
   }
 }

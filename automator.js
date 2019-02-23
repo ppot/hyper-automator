@@ -35,9 +35,6 @@ exports.onWindowClass = (window) => {
 }
 
 exports.onWindow = pWindow => {
-  // pWindow.onProfile = () => {
-  //   provision.save(pWindow.uid);
-  // };
   const window = reccord.findWindow(pWindow.uid);
   window.onMove(pWindow.getPosition());
   
