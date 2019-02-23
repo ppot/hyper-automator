@@ -1,7 +1,6 @@
 const { EDIT, ROLE, LEAD_KEY } = require('./constants');
-// const ROLE = 'window';
-    // if (menuItem.role === ROLE) {
-              // label: 'Profiles',
+
+const provision = require('../../Internal/provision');
 
 exports.decorateMenu = (menu) => {
   for (const menuItem of menu) {
@@ -13,7 +12,9 @@ exports.decorateMenu = (menu) => {
               label: 'Save profile',
               click(item, focusedWindow) {
                 if (focusedWindow !== null) {
-                  focusedWindow.rpc.emit('hyper-automator:profile:save', focusedWindow);
+                  const {uid} = focusedWindow;
+                  provision.save(uid);
+                  // focusedWindow.onProfile();
                 }
               }
             }

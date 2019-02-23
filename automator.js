@@ -1,4 +1,4 @@
-// const { decorateMenu } = require('./Extentions/UI/menu');
+const { decorateMenu } = require('./Extentions/UI/menu');
 
 // const fs = require('fs');
 // const path = require('path');
@@ -9,14 +9,16 @@ const Record = require('./Record');
 // const registry = require('./registry');
 const Window = require('./Models/Window');
 
+// const CLI = require('./CLI/Memory/state');
+// CLI.profile("default");
 // const UI = require('./Actions/ui');
 
 const reccord = new Record();
 
-provision.Load('77e7344f-bfaa-45ea-abf9-4298db609321');
+// provision.Load('77e7344f-bfaa-45ea-abf9-4298db609321');
 // let activeTab = undefined;
 
-// exports.decorateMenu = decorateMenu;
+exports.decorateMenu = decorateMenu;
 
 // exports.decorateWindowClass = defaults => {
 //   defaults.uid = 'profileId_dev';
@@ -33,6 +35,9 @@ exports.onWindowClass = (window) => {
 }
 
 exports.onWindow = pWindow => {
+  // pWindow.onProfile = () => {
+  //   provision.save(pWindow.uid);
+  // };
   const window = reccord.findWindow(pWindow.uid);
   window.onMove(pWindow.getPosition());
   
@@ -47,7 +52,6 @@ exports.onWindow = pWindow => {
     const {sender} = e;
     const {uid} = sender;
     reccord.onWindowClose(uid);
-    provision.save(uid);
   });
   
   // console.log(reccord.getAllWindows());
@@ -78,12 +82,13 @@ exports.onWindow = pWindow => {
 //     constructor(options) {
 //       super(options);
 // 
-//       const filename = path.join(DEFAULT_DIR, `${options.uid}.log`);
-//       console.log(filename);
-//       this.file = fs.createWriteStream(filename);
+//       // const filename = path.join(DEFAULT_DIR, `${options.uid}.log`);
+//       // console.log(filename);
+//       // this.file = fs.createWriteStream(filename);
 //       this.on('data', data => {
 //         const content = data.slice(36);
-//         this.file.write(content);
+//         console.log(content);
+//         // this.file.write(content);
 //       });
 //     }
 //     destroy() {

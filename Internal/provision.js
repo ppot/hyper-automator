@@ -16,7 +16,6 @@ module.exports = {
     console.log(db.getState());
   },
   save: (p) => {
-    console.log(p);
     const file = path.join(DEFAULT_DIR, `/.profiles/${p}.profile`);
     const adapter = new FileSync(file);
     const db = low(adapter);
