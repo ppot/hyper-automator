@@ -2,15 +2,11 @@
 'use strict';
 const arg = require('arg');
 // const dotenv = require('dotenv');
-const dir = require('./tools/dir');
-const fs = require('fs');
-const low = require('lowdb');
+// const dir = require('./tools/dir');
+// const fs = require('fs');
+// const low = require('lowdb');
 
-const _ = process.env.HOME;
-const _cd = _ + '/.hyper/.profiles';
-
-// const result = dotenv.config();
-const args = arg({
+const _args = arg({
   '--profile': Boolean, // Set the name of the curent profile
   '--config': Boolean, 
 
@@ -38,29 +34,4 @@ const args = arg({
   '-s':   '--save',
 });
 
-const h = (args) => { 
-  console.log(args);
-  const p = args['--profile'];  
-  const n = args['--name'];
-  const c = args['--config'];
-  const d = args['--directory'];
-  const s = args['--save'];
-  
-  if (c && d && !s) {
-    if (!dir(_cd)) {
-      console.log('profiles directory not set \n'
-       + 'use: h -c -d -s or create the directory by hand at: ' + _cd );
-    }
-  }
-  if (c && d && s) {
-    const _cds = dir(_cd);
-    if (!_cds) {
-      fs.mkdirSync(_cd);
-      console.log('created directory profile at : ' + _cd);
-    } else {
-      console.log('profile directory already exist at : ' + _cd);
-    }
-  }
-};
-
-h(args);
+require('./handlers/args')(_args);

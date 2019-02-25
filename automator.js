@@ -1,24 +1,22 @@
+const Record = require('./Record');
+const reccord = new Record();
+
 const { decorateMenu } = require('./Extentions/UI/menu');
+exports.decorateMenu = decorateMenu;
 
 // const fs = require('fs');
 // const path = require('path');
 
-const provision = require('./Internal/provision');
+// const provision = require('./Internal/provision');
 
-const Record = require('./Record');
+
 // const registry = require('./registry');
 const Window = require('./Models/Window');
 
-// const CLI = require('./CLI/Memory/state');
-// CLI.profile("default");
 // const UI = require('./Actions/ui');
-
-const reccord = new Record();
-
 // provision.Load('77e7344f-bfaa-45ea-abf9-4298db609321');
 // let activeTab = undefined;
 
-exports.decorateMenu = decorateMenu;
 
 // exports.decorateWindowClass = defaults => {
 //   defaults.uid = 'profileId_dev';
@@ -52,6 +50,8 @@ exports.onWindow = pWindow => {
   });
   
   // console.log(reccord.getAllWindows());
+  
+  // console.log(reccord.getAllWindows());
   // const window = new Window(pWindow.id, pWindow.getPosition());
   // const bounds = pWindow.getPosition() => { 
   //   const
@@ -78,15 +78,15 @@ exports.onWindow = pWindow => {
 //   return class mySession extends Session {
 //     constructor(options) {
 //       super(options);
-// 
+//       console.log(options);
 //       // const filename = path.join(DEFAULT_DIR, `${options.uid}.log`);
 //       // console.log(filename);
 //       // this.file = fs.createWriteStream(filename);
-//       this.on('data', data => {
-//         const content = data.slice(36);
-//         console.log(content);
-//         // this.file.write(content);
-//       });
+//       // this.on('data', data => {
+//       //   const content = data.slice(36);
+//       //   console.log(content);
+//       //   // this.file.write(content);
+//       // });
 //     }
 //     destroy() {
 //       this.file.end();

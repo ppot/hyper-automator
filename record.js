@@ -1,17 +1,15 @@
-// const Session = require('../Models/Session');
+const Store = require('./Memory/store');
 
 class Record {
     constructor() {
+      Store.setup();
       this.state = [];
       this.active = undefined;
       this.windows = new Map();
     }
-    
-    onProfileSave() {
-      console.log('onProfileSave');
-    }
 
     onWindow(window) {
+      Store.window.create(window);
       this.windows.set(window.uid, window);
     }
     
@@ -21,12 +19,13 @@ class Record {
     
     onWindowClose(uid) {
       if (this.windows.get(uid)) {
-        this.windows.delete(uid)
+        this.windows.delete(uid);
+        Store.window.remove(uid);
       }
     }
     
     getAllWindows() {
-      // return Array.from(this.windows); 
+      return this.windows.values();
     }
     
     onSession(uid) {

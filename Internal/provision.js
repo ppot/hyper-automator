@@ -4,6 +4,8 @@ const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const DEFAULT_DIR = '/Users/ppot/.hyper_plugins/local/hyper-automator';
 
+const Store = require('./../Memory/store');
+
 module.exports = {
   Load: (p) => {
     const file = path.join(DEFAULT_DIR, `/.profiles/${p}.profile`);
@@ -19,15 +21,7 @@ module.exports = {
     const file = path.join(DEFAULT_DIR, `/.profiles/${p}.profile`);
     const adapter = new FileSync(file);
     const db = low(adapter);
-    db.defaults({ profile: {}})
+    db.defaults(Store.state())
     .write()
   }
 }
-// const filePath = path.join(__dirname, `/.profiles/${uid}`);
-  // const adapter = new FileSync(filePath);
-
-
-// module.exports = (uid) => {
-//   console.log(filePath);
-//   // console.log(adapter);
-// };

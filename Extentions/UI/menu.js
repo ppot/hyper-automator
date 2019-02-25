@@ -14,7 +14,6 @@ exports.decorateMenu = (menu) => {
                 if (focusedWindow !== null) {
                   const {uid} = focusedWindow;
                   provision.save(uid);
-                  // focusedWindow.onProfile();
                 }
               }
             }
